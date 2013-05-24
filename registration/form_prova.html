@@ -1,0 +1,17 @@
+{% extends 'base.mako' %}
+
+
+{% load crispy_forms_tags %}
+ 
+{% block main_container %}
+<script type='text/javascript'src="/static/jquery.js"> </script>
+<script type='text/javascript'src="/static/datepicker/js/bootstrap-datepicker.js"> </script>
+
+<script>
+
+$('.datepicker').datepicker()
+
+</script> 
+
+   {% crispy form %}
+{% endblock %}

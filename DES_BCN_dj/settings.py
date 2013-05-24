@@ -1,5 +1,6 @@
 # Django settings for DES_BCN_dj project.
-
+import os
+BASE_DIR = ""
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -50,7 +51,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = '/Users/dpiscia/python_projects/django/DES_BCN_dj'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -68,7 +69,8 @@ STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
 # Additional locations of static files
-STATICFILES_DIRS = (
+STATICFILES_DIRS = ('/Users/dpiscia/python_projects/django/DES_BCN_dj/static',
+                     os.path.join(BASE_DIR, "static"),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -98,6 +100,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'djangomako.middleware.MakoMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -107,7 +110,8 @@ ROOT_URLCONF = 'DES_BCN_dj.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'DES_BCN_dj.wsgi.application'
 
-TEMPLATE_DIRS = (
+TEMPLATE_DIRS = ( "/Users/dpiscia/python_projects/django/DES_BCN_dj/registration" ,
+                 "/Users/dpiscia/python_projects/django/DES_BCN_dj/templates",
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -122,8 +126,10 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'registration',
     # Uncomment the next line to enable the admin:
+    'bootstrap_admin',
     'django.contrib.admin',
     'crispy_forms',
+    'bootstrap_toolkit',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
